@@ -24,12 +24,12 @@ const Index = () => {
         />
 
         <div className="relative z-10 text-center px-6">
-          <p className="text-xs uppercase tracking-[0.4em] text-accent mb-6 font-sans">
-            Ұзату тойына шақыру
-          </p>
           <h1 className="font-script text-7xl md:text-9xl mb-4 text-accent">
             Сабина
           </h1>
+          <p className="text-xs uppercase tracking-[0.4em] text-accent mb-6 font-sans">
+            Ұзату тойына шақыру
+          </p>
           <img
             src={heart}
             alt=""
@@ -105,20 +105,20 @@ const Index = () => {
           <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4 font-sans">
             Қадірлі қонақтар
           </p>
-          <p className="font-serif text-lg md:text-xl leading-relaxed">
-            Той иелері{" "}
-            <span className="text-accent font-semibold">
-              Жанболат — Айнагүл
-            </span>
-          </p>
           <p className="font-serif text-m md:text-xl leading-relaxed">
             Құрметті ағайын-туыс, құда-жекжат, дос-жаран! Сіздерді аяулы қызымыз{" "}
-            <span className="font-script text-lg text-accent">Сабинаның</span>{" "}
+            <span className="font-script text-lg text-accent">Сабинанын</span>{" "}
             ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға
             шақырамыз.
           </p>
           <p className="font-serif text-m md:text-xl mt-2 leading-relaxed">
             Қуанышымызды бірге бөлісіп, ақ баталарыңызды беруге келіңіздер!
+          </p>
+          <p className="font-serif text-lg md:text-xl leading-relaxed">
+            Той иелері{" "}
+            <span className="text-accent font-semibold">
+              Жанболат — Айнагүл
+            </span>
           </p>
         </div>
       </section>
@@ -137,7 +137,7 @@ const Index = () => {
             Тойға дейін қалды
           </p>
           <CountdownTimer />
-          <div className="mt-14">
+          <div className="mt-6">
             <WeddingCalendar />
           </div>
         </div>
