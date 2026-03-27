@@ -3,25 +3,44 @@ import { toast } from "sonner";
 
 const RsvpForm = () => {
   const [name, setName] = useState("");
-  const [guests, setGuests] = useState("1");
+  const [phone, setPhone] = useState("");
+
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !attending) {
+
+    if (!name || !phone || !attending) {
       toast.error("Барлық өрістерді толтырыңыз");
       return;
     }
-    setSubmitted(true);
-    toast.success("Рахмет! Сіздің жауабыңыз қабылданды");
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwJlYYy-xjcIFz9t6NkfsR_snrNFJejZOuMn8pnyv9GdbQVxl213CfMh8RQ8tyklm_9wA/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          date: new Date().toISOString(),
+          name,
+          phone,
+          attending,
+        }),
+      });
+
+      setSubmitted(true);
+      toast.success("Рахмет! Сіздің жауабыңыз қабылданды");
+    } catch (err) {
+      toast.error("Қате орын алды");
+    }
   };
 
   if (submitted) {
     return (
       <div className="text-center py-8">
         <p className="font-serif text-2xl text-primary-foreground">Рахмет!</p>
-        <p className="mt-2 text-primary-foreground/70 text-sm">Сіздің жауабыңыз қабылданды</p>
+        <p className="mt-2 text-primary-foreground/70 text-sm">
+          Сіздің жауабыңыз қабылданды
+        </p>
       </div>
     );
   }
@@ -38,6 +57,19 @@ const RsvpForm = () => {
           onChange={(e) => setName(e.target.value)}
           className="w-full bg-transparent border-b border-primary-foreground/30 py-2 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-accent focus:outline-none font-serif text-lg"
           placeholder="Есіміңізді жазыңыз"
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs uppercase tracking-widest text-primary-foreground/70 mb-1.5">
+          Телефон нөмері
+        </label>
+        <input
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="w-full bg-transparent border-b border-primary-foreground/30 py-2 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-accent focus:outline-none font-serif text-lg"
+          placeholder="+7________"
         />
       </div>
 
@@ -65,25 +97,6 @@ const RsvpForm = () => {
           ))}
         </div>
       </div>
-
-      {attending === "yes" && (
-        <div>
-          <label className="block text-xs uppercase tracking-widest text-primary-foreground/70 mb-1.5">
-            Қонақ саны
-          </label>
-          <select
-            value={guests}
-            onChange={(e) => setGuests(e.target.value)}
-            className="w-full bg-transparent border-b border-primary-foreground/30 py-2 text-primary-foreground focus:border-accent focus:outline-none font-serif text-lg"
-          >
-            {[1, 2, 3, 4, 5].map((n) => (
-              <option key={n} value={n} className="bg-primary text-primary-foreground">
-                {n}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
 
       <button
         type="submit"

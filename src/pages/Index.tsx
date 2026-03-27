@@ -54,7 +54,7 @@ const Index = () => {
       </div>
 
       {/* Bride Photo */}
-      <section className="relative py-16 md:py-24 bg-secondary overflow-hidden">
+      {/* <section className="relative py-16 md:py-24 bg-secondary overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -72,19 +72,10 @@ const Index = () => {
             />
           </div>
         </div>
-      </section>
-
-      {/* Lace divider */}
-      <div className="relative h-12 md:h-16 bg-primary overflow-hidden">
-        <img
-          src={laceDivider}
-          alt=""
-          className="absolute inset-x-0 bottom-0 w-full h-full object-cover opacity-30 rotate-180"
-        />
-      </div>
+      </section> */}
 
       {/* Invitation Text */}
-      <section className="relative py-20  md:py-28 bg-primary text-primary-foreground overflow-hidden">
+      <section className="relative py-20  md:py-28 bg-secondary text-secondary-foreground overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -105,16 +96,16 @@ const Index = () => {
           <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4 font-sans">
             Қадірлі қонақтар
           </p>
-          <p className="font-serif text-m md:text-xl leading-relaxed">
+          <p className="font-serif text-m md:text-lg leading-relaxed">
             Құрметті ағайын-туыс, құда-жекжат, дос-жаран! Сіздерді аяулы қызымыз{" "}
-            <span className="font-script text-lg text-accent">Сабинанын</span>{" "}
+            <span className="font-script text-lg text-accent">Сабинаның</span>{" "}
             ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға
             шақырамыз.
           </p>
-          <p className="font-serif text-m md:text-xl mt-2 leading-relaxed">
+          <p className="font-serif text-m md:text-lg mt-2 leading-relaxed">
             Қуанышымызды бірге бөлісіп, ақ баталарыңызды беруге келіңіздер!
           </p>
-          <p className="font-serif text-lg md:text-xl leading-relaxed">
+          <p className="font-serif text-m md:text-kg leading-relaxed">
             Той иелері{" "}
             <span className="text-accent font-semibold">
               Жанболат — Айнагүл

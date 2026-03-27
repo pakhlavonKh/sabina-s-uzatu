@@ -60,9 +60,12 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        serif: ["Cormorant Garamond", "serif"],
+        serif: ["PT Serif", "Merriweather", "serif"],
+        "serif-alt": ["Merriweather", "PT Serif", "serif"],
         script: ["Marck Script", "cursive"],
-        sans: ["Montserrat", "sans-serif"],
+        sans: ["Open Sans", "Nunito", "sans-serif"],
+        "sans-alt": ["Nunito", "Open Sans", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
